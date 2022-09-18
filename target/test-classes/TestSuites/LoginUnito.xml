@@ -1,0 +1,81 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="LoginUnito" verbose="1">
+
+	
+	<test name="PositiveTest">
+	<parameter name="browser" value="chrome" />
+		<parameter name="username" value="martin.stankov" />
+		<parameter name="password" value='9)"zGJmk:z/YdVN' />
+		<classes>
+			<class name="it.unito.LoginUnito">
+				<methods>
+					<include name="positiveLoginTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="NegativeUsernameTests">
+	<parameter name="browser" value="chrome" />
+		<parameter name="username" value="incorrect.Username" />
+		<parameter name="password" value="SuperSecretPassword!" />
+		<parameter name="expectedMessage"
+			value="Autenticazione fallita: credenziali errate. Riprova." />
+		<classes>
+			<class name="it.unito.LoginUnito">
+				<methods>
+					<include name="negativeLoginTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="NegativePasswordTests">
+	<parameter name="browser" value="chrome" />
+		<parameter name="username" value="martin.stankov" />
+		<parameter name="password" value="incorrectPassword!" />
+		<parameter name="expectedMessage"
+			value="Autenticazione fallita: credenziali errate. Riprova." />
+		<classes>
+			<class name="it.unito.LoginUnito">
+				<methods>
+					<include name="negativeLoginTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="emptyUsernameTest">
+	<parameter name="browser" value="chrome" />
+		<parameter name="username" value="" />
+		<parameter name="password" value='9)"zGJmk:z/YdVN' />
+		<parameter name="expectedMessage"
+			value="Autenticazione fallita: credenziali errate. Riprova." />
+		<classes>
+			<class name="it.unito.LoginUnito">
+				<methods>
+					<include name="negativeLoginTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="emptyPasswordTest">
+	<parameter name="browser" value="chrome" />
+		<parameter name="username" value="martin.stankov" />
+		<parameter name="password" value='' />
+		<parameter name="expectedMessage"
+			value="Autenticazione fallita: credenziali errate. Riprova." />
+		<classes>
+			<class name="it.unito.LoginUnito">
+				<methods>
+					<include name="negativeLoginTest"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	
+
+</suite>
